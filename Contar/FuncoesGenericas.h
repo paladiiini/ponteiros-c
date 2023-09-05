@@ -22,7 +22,7 @@ void *encontrarMaior(void *[], int, FuncaoComparacao);
 int contar(void *[], int, FuncaoPredicado);
 
 // o objetivo da função "contar" é contabilizar a quantidade de elementos do
-// vetor que atendem à um determinado predicado
+// vetor que atendem à um determinado predic
 
 void aplicarOperacao(void *dados[], int tam, FuncaoOperacao operacao);
 
@@ -49,7 +49,46 @@ void *encontrarMaior(void *dados[], int tam, FuncaoComparacao pfc) {
     
 }
 
-int contar(void *dados[], int tam, FuncaoPredicado pfp) { return 0; }
+int serPar(void* info){
+
+int* p = (int*) info;
+if (*p % 2 == 0)
+    return 1;
+
+return 0;
+}
+
+int serImpar(void* info){
+
+int* p = (int*) info;
+if (*p % 2 == 1)
+    return 1;
+
+return 0;
+}
+
+int serPrimo(void* info){
+
+int* p = (int*) info;
+if (*p % 2 == 1)
+    return 1;
+
+return 0;
+}
+
+int contar(void *dados[], int tam, FuncaoPredicado pfp) { 
+    
+    int contador = 0;
+
+    for(int i = 0; i < tam; i++){
+
+        if(pfp(dados[i] == 1)){
+        contador++;
+        }
+    }
+    
+    return contador; 
+}
 
 void somar(void *valor) {
     int i = 0;
